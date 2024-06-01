@@ -1,15 +1,62 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const GalleryList = ( ) => {
 
+// should get the array of gallery item objects
+const GalleryList = ({}) => {
+// .map through the array of gallery item objects
+//store useState to Display each picture (gallery item)
+useEffect(() => {
+    fetchPictures();
+  }, [])
+
+  let [pictures,setPictures] = useState([]);
+
+const fetchPictures = () => {
+axios ({
+  method: "GET",
+  url: "/api/gallery"
+})
+  .then((response)=> {
+    console.log('response.data is:', response.data);
+    setPictures(response.data);
+    console.log("are these the pictures",setPictures)
+    console.log("pictures", pictures)
+  })
+  .catch((error) => {
+    console.log('Error on get:', error);
+  });
+};
+
+ const likeCount = (id) => {
+  console.log("is my function working", likeCount)
+
+axios({
+  method: "PUT",
+  url: `/api/gallery/likes/${id}`
+
+})
+.then((repsonse)=>{
+  fetchPictures()
+})
+.catch((error) => {
+  alert(`Couldn't update like count. Try again later`);
+  console.log('Error updating inventory count', error);
+});
+};
 return (
 <>
-<img className="photo" src="images/goat_small.jpg"/>
-        <img className="photo" src="images/goat_stache.png"/>
-        <img className="photo" src="images/AK_Eagle.jpeg"/>
-        <img className="photo" src="images/El_Paso.jpeg"/>
-        <img className="photo" src="images/Rainbow.jpeg"/>
-        <img className="photo" src="images/Stairs.jpeg"/>
-        <img className="photo" src="images/Zeus.jpeg"/>
+<h2>My Gallery!</h2>
+    <ul>
+        {
+        pictures.map(image) => (
+    <li key= "Images"></li>
+
+
+        )}
+
+    </ul>
+
 </>
 )
 
