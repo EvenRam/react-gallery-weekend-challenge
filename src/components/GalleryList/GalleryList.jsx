@@ -1,42 +1,41 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 // should get the array of gallery item objects
-const GalleryList = ({}) => {
+const GalleryList = () => {
 // .map through the array of gallery item objects
 //store useState to Display each picture (gallery item)
+const [pictures,setPictures] = useState([]);
+
 useEffect(() => {
     fetchPictures();
-  }, [])
+  }, []);
 
-  let [pictures,setPictures] = useState([]);
 
 const fetchPictures = () => {
 axios ({
   method: "GET",
-  url: "/api/gallery"
+  url: "/api/gallery",
 })
   .then((response)=> {
     console.log('response.data is:', response.data);
     setPictures(response.data);
-    console.log("are these the pictures",setPictures)
-    console.log("pictures", pictures)
+   console.log("pictures", pictures)
   })
   .catch((error) => {
     console.log('Error on get:', error);
-  });
+  })
 };
 
  const likeCount = (id) => {
   console.log("is my function working", likeCount)
-
 axios({
   method: "PUT",
   url: `/api/gallery/likes/${id}`
-
 })
-.then((repsonse)=>{
+.then((response)=>{
+    console.log('response in put:', response);
   fetchPictures()
 })
 .catch((error) => {
@@ -46,20 +45,17 @@ axios({
 };
 return (
 <>
+<div data-testid="galleryList">
 <h2>My Gallery!</h2>
     <ul>
-        {
-        pictures.map(image) => (
-    <li key= "Images"></li>
+        {pictures.map((image) => {
+    <li key= {image.id}>{image.title}{image.desription}{image.likes}</li>
 
-
-        )}
-
+})}
     </ul>
-
+    </div>
 </>
 )
-
 }
-
 export default GalleryList
+

@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import React from 'react';
 import GalleryList from '../GalleryList/GalleryList';
-
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 function App() {
 
-  
 
     return (
       <div data-testid="app">
@@ -14,8 +12,10 @@ function App() {
           <h1>React Gallery</h1>
         </header>
 
+        <p>The gallery goes here!</p>
         
-       <GalleryList  />
+       <GalleryList />
+      <GalleryItem  />
       </div>
     );
 }
