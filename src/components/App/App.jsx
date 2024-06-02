@@ -1,13 +1,13 @@
 
 import React from 'react';
 import GalleryList from '../GalleryList/GalleryList';
-import GalleryItem from '../GalleryItem/GalleryItem';
+//import GalleryItem from '../GalleryItem/GalleryItem';
 
 function App() {
 
 
     return (
-      <div data-testid="app">
+      <div>
         <header>
           <h1>React Gallery</h1>
         </header>
@@ -15,7 +15,6 @@ function App() {
         <p>The gallery goes here!</p>
         
        <GalleryList />
-      <GalleryItem  />
       </div>
     );
 }
