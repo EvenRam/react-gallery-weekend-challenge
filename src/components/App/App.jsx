@@ -1,7 +1,7 @@
 
 import React from 'react';
 import GalleryList from '../GalleryList/GalleryList';
-//import GalleryItem from '../GalleryItem/GalleryItem';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
         <p>The gallery goes here!</p>
         
        <GalleryList />
+      
       </div>
     );
 }

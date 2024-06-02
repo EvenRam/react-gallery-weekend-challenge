@@ -24,7 +24,7 @@ const GalleryList = () => {
       console.log('Error on get:', error);
     });
   };
-/*
+
   const likeCount = (id) => {
     console.log("is my function working", likeCount);
 
@@ -40,7 +40,7 @@ const GalleryList = () => {
       console.log('Error updating inventory count', error);
     });
   };
-*/
+
   return (
     <>
       <h2>My Gallery!</h2>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js')
 
+
 // PUT /gallery/like/:id
 // need to increment likes value by 1
 router.put('/likes/:id', (req, res) => {
