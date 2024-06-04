@@ -12,7 +12,7 @@ const GalleryList = () => {
   const fetchPictures = () => {
     axios({
       method: "GET",
-      url: "/api/gallery"
+      url: '/api/gallery'
     })
     .then((response) => {
       console.log('response.data is:', response.data);
@@ -25,7 +25,8 @@ const GalleryList = () => {
     });
   };
 
-  const likeCount = (id) => {
+ 
+ const likeCount = (id) => {
     console.log("is my function working", likeCount);
 
     axios({
@@ -46,7 +47,7 @@ const GalleryList = () => {
       <h2>My Gallery!</h2>
       <ul>
         {pictures.map((item) => (
-          <li key={item.id}>
+          <li key={item.id}> {item.title}, {item.description}
             <img className="photo" src={item.url}/>
           </li>
         ))}

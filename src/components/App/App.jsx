@@ -12,9 +12,10 @@ function App() {
           <h1>React Gallery</h1>
         </header>
 
-        <p>The gallery goes here!</p>
         
        <GalleryList />
+       <GalleryItem />
+
       
       </div>
     );
