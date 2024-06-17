@@ -16,17 +16,19 @@ const GalleryItem = ({item,likeCount}) => {
               
         return (
    
-    <li data-testid="galleryItem">
+    <div data-testid="galleryItem">
             {displayPic ? (
         <img src={item.url} alt = {item.title} data-testid="toggle" onClick = {toggleImage} />
             ) : (
                 <p className = "description" data-testid="toggle" onClick = {toggleImage}>{item.description}</p>
         )}
 
+
         <p>{item.title}</p>
-        <p>Likes: {item.likes}</p>
+      
         <button data-testid="like" onClick={() => likeCount(item.id)}>Like</button>
-    </li>
+          <p>Likes: {item.likes}</p>
+    </div>
     
     )
     

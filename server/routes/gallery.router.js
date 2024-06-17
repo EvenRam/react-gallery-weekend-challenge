@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
   // code here
   console.log("In GET request");
 
-  const sqlText = `SELECT * from "gallery"`;
+  const sqlText = `SELECT * from "gallery" ORDER BY id`;
 
   pool.query(sqlText)
     .then((result) => {
